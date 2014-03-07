@@ -144,9 +144,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int home=0x7f0a0000;
     }
     public static final class string {
-        public static final int action_settings=0x7f090001;
-        public static final int app_name=0x7f090000;
-        public static final int hello_world=0x7f090002;
+        public static final int action_settings=0x7f080004;
+        public static final int app_name=0x7f080003;
+        public static final int hello_world=0x7f080005;
+        public static final int pull_to_refresh_pull_label=0x7f080000;
+        public static final int pull_to_refresh_refreshing_label=0x7f080002;
+        public static final int pull_to_refresh_release_label=0x7f080001;
     }
     public static final class style {
         /** 
@@ -159,21 +162,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f080001;
+        public static final int AppBaseTheme=0x7f090001;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080002;
-        public static final int TextAppearance_TabPageIndicator=0x7f080003;
-        public static final int Theme_Twidere=0x7f08000b;
-        public static final int Widget_PullToRefresh_ProgressBar_Horizontal_Center=0x7f080000;
-        public static final int Widget_TabPageIndicator_TabItem=0x7f08000a;
-        public static final int Widget_TabPageIndicator_TabItem_Content=0x7f080008;
-        public static final int Widget_TabPageIndicator_TabItem_TextView=0x7f080009;
-        public static final int Widget_Twidere_ActionBar=0x7f080004;
-        public static final int Widget_Twidere_Light_CompoundButton_CheckBox=0x7f080005;
-        public static final int Widget_Twidere_Light_CompoundButton_RadioButton=0x7f080006;
-        public static final int Widget_Twidere_Light_TextView=0x7f080007;
+        public static final int AppTheme=0x7f090002;
+        public static final int TextAppearance_TabPageIndicator=0x7f090003;
+        public static final int Theme_Twidere=0x7f09000b;
+        public static final int Widget_PullToRefresh_ProgressBar_Horizontal_Center=0x7f090000;
+        public static final int Widget_TabPageIndicator_TabItem=0x7f09000a;
+        public static final int Widget_TabPageIndicator_TabItem_Content=0x7f090008;
+        public static final int Widget_TabPageIndicator_TabItem_TextView=0x7f090009;
+        public static final int Widget_Twidere_ActionBar=0x7f090004;
+        public static final int Widget_Twidere_Light_CompoundButton_CheckBox=0x7f090005;
+        public static final int Widget_Twidere_Light_CompoundButton_RadioButton=0x7f090006;
+        public static final int Widget_Twidere_Light_TextView=0x7f090007;
     }
     public static final class styleable {
         /** Attributes that can be used with a TabPagerIndicator.

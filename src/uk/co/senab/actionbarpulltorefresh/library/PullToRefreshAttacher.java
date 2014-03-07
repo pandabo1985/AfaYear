@@ -6,6 +6,7 @@ import com.afayear.android.client.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 
 public class PullToRefreshAttacher {
 	private static final String LOG_TAG = "PullToRefreshAttacher";
@@ -37,8 +39,10 @@ public class PullToRefreshAttacher {
 	private final EnvironmentDelegate mEnvironmentDelegate;
 	private final HeaderTransformer mHeaderTransformer;
 	private final Animation mHeaderInAnimation, mHeaderOutAnimation;
-
-
+	private final int mTouchSlop;
+	private static final boolean DEBUG = false;
+	private final View mHeaderView;
+	
 	protected PullToRefreshAttacher(final Activity activity, Options options) {
 		if (options == null) {
 			Log.i(LOG_TAG, "Given null options so using default options.");
@@ -335,7 +339,83 @@ public class PullToRefreshAttacher {
 	protected EnvironmentDelegate createDefaultEnvironmentDelegate() {
 		return new EnvironmentDelegate();
 	}
+
 	protected HeaderTransformer createDefaultHeaderTransformer() {
 		return new DefaultHeaderTransformer();
 	}
+
+	private class AnimationCallback implements Animation.AnimationListener {
+
+		@Override
+		public void onAnimationEnd(final Animation animation) {
+			if (animation == mHeaderOutAnimation) {
+				mHeaderView.setVisibility(View.GONE);
+				mHeaderTransformer.onReset();
+				if (mHeaderViewListener != null) {
+					mHeaderViewListener.onStateChanged(mHeaderView,
+							HeaderViewListener.STATE_HIDDEN);
+				}
+			} else if (animation == mHeaderInAnimation) {
+				if (mHeaderViewListener != null) {
+					mHeaderViewListener.onStateChanged(mHeaderView,
+							HeaderViewListener.STATE_VISIBLE);
+				}
+			}
+		}
+
+		@Override
+		public void onAnimationRepeat(final Animation animation) {
+		}
+
+		@Override
+		public void onAnimationStart(final Animation animation) {
+		}
+	}
+
+	/**
+	 * This class allows us to insert a layer in between the system decor view
+	 * and the actual decor. (e.g. Action Bar views). This is needed so we can
+	 * receive a call to fitSystemWindows(Rect) so we can adjust the header view
+	 * to fit the system windows too.
+	 */
+	final static class DecorChildLayout extends FrameLayout {
+		private final ViewGroup mHeaderViewWrapper;
+
+		DecorChildLayout(final Context context,
+				final ViewGroup systemDecorView, final View headerView) {
+			super(context);
+
+			// Move all children from decor view to here
+			for (int i = 0, z = systemDecorView.getChildCount(); i < z; i++) {
+				final View child = systemDecorView.getChildAt(i);
+				systemDecorView.removeView(child);
+				addView(child);
+			}
+
+			/**
+			 * Wrap the Header View in a FrameLayout and add it to this view. It
+			 * is wrapped so any inset changes do not affect the actual header
+			 * view.
+			 */
+			mHeaderViewWrapper = new FrameLayout(context);
+			mHeaderViewWrapper.addView(headerView);
+			addView(mHeaderViewWrapper, ViewGroup.LayoutParams.MATCH_PARENT,
+					ViewGroup.LayoutParams.WRAP_CONTENT);
+		}
+
+		@Override
+		protected boolean fitSystemWindows(final Rect insets) {
+			if (DEBUG) {
+				Log.d(LOG_TAG, "fitSystemWindows: " + insets.toString());
+			}
+
+			// Adjust the Header View's padding to take the insets into account
+			mHeaderViewWrapper.setPadding(insets.left, insets.top,
+					insets.right, insets.bottom);
+
+			// Call return super so that the rest of the
+			return super.fitSystemWindows(insets);
+		}
+	}
+
 }
