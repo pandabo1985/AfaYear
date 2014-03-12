@@ -64,7 +64,67 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+        public static final int drawSelectorOnTop=0x7f010018;
+        /**  Max fade value. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeMax=0x7f010016;
+        /**  Default fade types. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td> Fade is disabled. </td></tr>
+<tr><td><code>left</code></td><td>1</td><td> Fade applies to actions container. </td></tr>
+<tr><td><code>right</code></td><td>2</td><td> Fade applies to content container. </td></tr>
+<tr><td><code>both</code></td><td>3</td><td> Fade applies to every container. </td></tr>
+</table>
+         */
+        public static final int fadeType=0x7f01000e;
+        /**  Indicates how long flinging will take time in milliseconds. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int flingDuration=0x7f010017;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
         public static final int ignorePadding=0x7f010009;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int itemMargin=0x7f01001a;
+        /**  Actions layout ID to link at view creation time. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layoutLeft=0x7f010011;
+        /**  Content layout ID to link at view creation time. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layoutRight=0x7f010012;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -73,6 +133,60 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int listMenuOverflowButton=0x7f010007;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int numColumns=0x7f010019;
+        /**  Drawable to be used to draw shadow dropped by content view to actions one. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int shadowDrawable=0x7f010013;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int shadowSlidable=0x7f010015;
+        /**  Shadow width. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int shadowWidth=0x7f010014;
+        /**  Spacing value for actions container. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int spacingLeft=0x7f010010;
+        /**  Spacing value. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int spacingRight=0x7f01000f;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -86,14 +200,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int tabItemTextStyle=0x7f01000d;
     }
+    public static final class bool {
+        public static final int default_shadow_slidable=0x7f060004;
+        public static final int hires_profile_image=0x7f060002;
+        public static final int home_display_icon=0x7f060001;
+        public static final int is_large_screen=0x7f060003;
+        public static final int shadow_slidable=0x7f060005;
+        public static final int tab_display_label=0x7f060000;
+    }
     public static final class color {
-        public static final int bg_color_light=0x7f050000;
+        public static final int bg_color_light=0x7f070000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
+        public static final int activity_horizontal_margin=0x7f080000;
+        public static final int activity_vertical_margin=0x7f080001;
+        public static final int default_slidepane_spacing_left=0x7f080005;
+        public static final int default_slidepane_spacing_right=0x7f080006;
+        public static final int default_slidingpane_shadow_width=0x7f080002;
+        public static final int pane_spacing_left=0x7f080003;
+        public static final int pane_spacing_right=0x7f080004;
     }
     public static final class drawable {
         public static final int ab_solid_dark_holo=0x7f020000;
@@ -120,36 +247,57 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ptr_progressbar_indeterminate_holo6=0x7f020015;
         public static final int ptr_progressbar_indeterminate_holo7=0x7f020016;
         public static final int ptr_progressbar_indeterminate_holo8=0x7f020017;
-        public static final int vpi__tab_indicator=0x7f020018;
-        public static final int vpi__tab_selected_focused_holo=0x7f020019;
-        public static final int vpi__tab_selected_holo=0x7f02001a;
-        public static final int vpi__tab_selected_pressed_holo=0x7f02001b;
-        public static final int vpi__tab_unselected_focused_holo=0x7f02001c;
-        public static final int vpi__tab_unselected_holo=0x7f02001d;
-        public static final int vpi__tab_unselected_pressed_holo=0x7f02001e;
+        public static final int shadow_holo=0x7f020018;
+        public static final int vpi__tab_indicator=0x7f020019;
+        public static final int vpi__tab_selected_focused_holo=0x7f02001a;
+        public static final int vpi__tab_selected_holo=0x7f02001b;
+        public static final int vpi__tab_selected_pressed_holo=0x7f02001c;
+        public static final int vpi__tab_unselected_focused_holo=0x7f02001d;
+        public static final int vpi__tab_unselected_holo=0x7f02001e;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f02001f;
     }
     public static final class id {
-        public static final int action_settings=0x7f070005;
-        public static final int color_layer=0x7f070004;
-        public static final int ptr_content=0x7f070000;
-        public static final int ptr_progress=0x7f070003;
-        public static final int ptr_text=0x7f070002;
-        public static final int ptr_text_opaque_bg=0x7f070001;
+        public static final int action_settings=0x7f05000d;
+        public static final int both=0x7f050003;
+        public static final int color_layer=0x7f05000c;
+        public static final int fragment_container_left=0x7f05000a;
+        public static final int fragment_container_right=0x7f05000b;
+        public static final int left=0x7f050001;
+        public static final int main=0x7f050008;
+        public static final int none=0x7f050000;
+        public static final int ptr_content=0x7f050004;
+        public static final int ptr_progress=0x7f050007;
+        public static final int ptr_text=0x7f050006;
+        public static final int ptr_text_opaque_bg=0x7f050005;
+        public static final int right=0x7f050002;
+        public static final int sliding_pane=0x7f050009;
+    }
+    public static final class integer {
+        public static final int default_sliding_pane_fade_max=0x7f090000;
+        public static final int default_sliding_pane_fling_duration=0x7f090001;
+        public static final int default_staggered_gridview_columns=0x7f090005;
+        public static final int default_text_size=0x7f090004;
+        public static final int nyan_star_cols=0x7f090003;
+        public static final int nyan_star_rows=0x7f090002;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
-        public static final int pull_refresh_default_header=0x7f030001;
+        public static final int base=0x7f030001;
+        public static final int base_dual_pane=0x7f030002;
+        public static final int base_pane_left_content=0x7f030003;
+        public static final int base_pane_right_content=0x7f030004;
+        public static final int pull_refresh_default_header=0x7f030005;
     }
     public static final class menu {
-        public static final int home=0x7f0a0000;
+        public static final int home=0x7f0c0000;
     }
     public static final class string {
-        public static final int action_settings=0x7f080004;
-        public static final int app_name=0x7f080003;
-        public static final int hello_world=0x7f080005;
-        public static final int pull_to_refresh_pull_label=0x7f080000;
-        public static final int pull_to_refresh_refreshing_label=0x7f080002;
-        public static final int pull_to_refresh_release_label=0x7f080001;
+        public static final int action_settings=0x7f0a0004;
+        public static final int app_name=0x7f0a0003;
+        public static final int hello_world=0x7f0a0005;
+        public static final int pull_to_refresh_pull_label=0x7f0a0000;
+        public static final int pull_to_refresh_refreshing_label=0x7f0a0002;
+        public static final int pull_to_refresh_release_label=0x7f0a0001;
     }
     public static final class style {
         /** 
@@ -162,23 +310,274 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f090001;
+        public static final int AppBaseTheme=0x7f0b0001;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f090002;
-        public static final int TextAppearance_TabPageIndicator=0x7f090003;
-        public static final int Theme_Twidere=0x7f09000b;
-        public static final int Widget_PullToRefresh_ProgressBar_Horizontal_Center=0x7f090000;
-        public static final int Widget_TabPageIndicator_TabItem=0x7f09000a;
-        public static final int Widget_TabPageIndicator_TabItem_Content=0x7f090008;
-        public static final int Widget_TabPageIndicator_TabItem_TextView=0x7f090009;
-        public static final int Widget_Twidere_ActionBar=0x7f090004;
-        public static final int Widget_Twidere_Light_CompoundButton_CheckBox=0x7f090005;
-        public static final int Widget_Twidere_Light_CompoundButton_RadioButton=0x7f090006;
-        public static final int Widget_Twidere_Light_TextView=0x7f090007;
+        public static final int AppTheme=0x7f0b0002;
+        public static final int TextAppearance_TabPageIndicator=0x7f0b0003;
+        public static final int Theme_Twidere=0x7f0b000b;
+        public static final int Widget_PullToRefresh_ProgressBar_Horizontal_Center=0x7f0b0000;
+        public static final int Widget_TabPageIndicator_TabItem=0x7f0b000a;
+        public static final int Widget_TabPageIndicator_TabItem_Content=0x7f0b0008;
+        public static final int Widget_TabPageIndicator_TabItem_TextView=0x7f0b0009;
+        public static final int Widget_Twidere_ActionBar=0x7f0b0004;
+        public static final int Widget_Twidere_Light_CompoundButton_CheckBox=0x7f0b0005;
+        public static final int Widget_Twidere_Light_CompoundButton_RadioButton=0x7f0b0006;
+        public static final int Widget_Twidere_Light_TextView=0x7f0b0007;
     }
     public static final class styleable {
+        /** Attributes that can be used with a SlidingPaneView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SlidingPaneView_fadeMax com.afayear.android.client:fadeMax}</code></td><td> Max fade value.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_fadeType com.afayear.android.client:fadeType}</code></td><td> Fade type.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_flingDuration com.afayear.android.client:flingDuration}</code></td><td> Indicates how long flinging will take time in milliseconds.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_layoutLeft com.afayear.android.client:layoutLeft}</code></td><td> Actions layout ID to link at view creation time.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_layoutRight com.afayear.android.client:layoutRight}</code></td><td> Content layout ID to link at view creation time.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_shadowDrawable com.afayear.android.client:shadowDrawable}</code></td><td> Drawable to be used to draw shadow dropped by content view to actions one.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_shadowSlidable com.afayear.android.client:shadowSlidable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingPaneView_shadowWidth com.afayear.android.client:shadowWidth}</code></td><td> Shadow width.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_spacingLeft com.afayear.android.client:spacingLeft}</code></td><td> Spacing value for actions container.</td></tr>
+           <tr><td><code>{@link #SlidingPaneView_spacingRight com.afayear.android.client:spacingRight}</code></td><td> Spacing value.</td></tr>
+           </table>
+           @see #SlidingPaneView_fadeMax
+           @see #SlidingPaneView_fadeType
+           @see #SlidingPaneView_flingDuration
+           @see #SlidingPaneView_layoutLeft
+           @see #SlidingPaneView_layoutRight
+           @see #SlidingPaneView_shadowDrawable
+           @see #SlidingPaneView_shadowSlidable
+           @see #SlidingPaneView_shadowWidth
+           @see #SlidingPaneView_spacingLeft
+           @see #SlidingPaneView_spacingRight
+         */
+        public static final int[] SlidingPaneView = {
+            0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011,
+            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015,
+            0x7f010016, 0x7f010017
+        };
+        /**
+          <p>
+          @attr description
+           Max fade value. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:fadeMax
+        */
+        public static final int SlidingPaneView_fadeMax = 8;
+        /**
+          <p>
+          @attr description
+           Fade type. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td> Fade is disabled. </td></tr>
+<tr><td><code>left</code></td><td>1</td><td> Fade applies to actions container. </td></tr>
+<tr><td><code>right</code></td><td>2</td><td> Fade applies to content container. </td></tr>
+<tr><td><code>both</code></td><td>3</td><td> Fade applies to every container. </td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:fadeType
+        */
+        public static final int SlidingPaneView_fadeType = 0;
+        /**
+          <p>
+          @attr description
+           Indicates how long flinging will take time in milliseconds. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:flingDuration
+        */
+        public static final int SlidingPaneView_flingDuration = 9;
+        /**
+          <p>
+          @attr description
+           Actions layout ID to link at view creation time. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:layoutLeft
+        */
+        public static final int SlidingPaneView_layoutLeft = 3;
+        /**
+          <p>
+          @attr description
+           Content layout ID to link at view creation time. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:layoutRight
+        */
+        public static final int SlidingPaneView_layoutRight = 4;
+        /**
+          <p>
+          @attr description
+           Drawable to be used to draw shadow dropped by content view to actions one. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:shadowDrawable
+        */
+        public static final int SlidingPaneView_shadowDrawable = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.afayear.android.client.R.attr#shadowSlidable}
+          attribute's value can be found in the {@link #SlidingPaneView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.afayear.android.client:shadowSlidable
+        */
+        public static final int SlidingPaneView_shadowSlidable = 7;
+        /**
+          <p>
+          @attr description
+           Shadow width. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:shadowWidth
+        */
+        public static final int SlidingPaneView_shadowWidth = 6;
+        /**
+          <p>
+          @attr description
+           Spacing value for actions container. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:spacingLeft
+        */
+        public static final int SlidingPaneView_spacingLeft = 2;
+        /**
+          <p>
+          @attr description
+           Spacing value. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.afayear.android.client:spacingRight
+        */
+        public static final int SlidingPaneView_spacingRight = 1;
+        /** Attributes that can be used with a StaggeredGridView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #StaggeredGridView_drawSelectorOnTop com.afayear.android.client:drawSelectorOnTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #StaggeredGridView_itemMargin com.afayear.android.client:itemMargin}</code></td><td></td></tr>
+           <tr><td><code>{@link #StaggeredGridView_numColumns com.afayear.android.client:numColumns}</code></td><td></td></tr>
+           </table>
+           @see #StaggeredGridView_drawSelectorOnTop
+           @see #StaggeredGridView_itemMargin
+           @see #StaggeredGridView_numColumns
+         */
+        public static final int[] StaggeredGridView = {
+            0x7f010018, 0x7f010019, 0x7f01001a
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.afayear.android.client.R.attr#drawSelectorOnTop}
+          attribute's value can be found in the {@link #StaggeredGridView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.afayear.android.client:drawSelectorOnTop
+        */
+        public static final int StaggeredGridView_drawSelectorOnTop = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.afayear.android.client.R.attr#itemMargin}
+          attribute's value can be found in the {@link #StaggeredGridView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.afayear.android.client:itemMargin
+        */
+        public static final int StaggeredGridView_itemMargin = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.afayear.android.client.R.attr#numColumns}
+          attribute's value can be found in the {@link #StaggeredGridView} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.afayear.android.client:numColumns
+        */
+        public static final int StaggeredGridView_numColumns = 1;
         /** Attributes that can be used with a TabPagerIndicator.
            <p>Includes the following attributes:</p>
            <table>

@@ -3,5 +3,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="default_slidingpane_shadow_width">4dp</dimen>
+    <dimen name="pane_spacing_left">0dp</dimen>
+    <dimen name="pane_spacing_right">0dp</dimen>
+    <dimen name="default_slidepane_spacing_left">@dimen/pane_spacing_left</dimen>
+    <dimen name="default_slidepane_spacing_right">@dimen/pane_spacing_right</dimen>
 
 </resources>

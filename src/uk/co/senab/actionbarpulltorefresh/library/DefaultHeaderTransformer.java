@@ -1,3 +1,19 @@
+/*
+ * Copyright 2013 Chris Banes
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package uk.co.senab.actionbarpulltorefresh.library;
 
 import android.app.Activity;
@@ -7,6 +23,7 @@ import android.graphics.PixelFormat;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -17,35 +34,37 @@ import android.widget.TextView;
 
 import com.afayear.android.client.R;
 import com.afayear.android.util.ThemeUtils;
+import com.afayear.android.util.ViewAccessor;
 
-public class DefaultHeaderTransformer extends
-		PullToRefreshAttacher.HeaderTransformer {
+/**
+ * Default Header Transformer.
+ */
+public class DefaultHeaderTransformer extends PullToRefreshAttacher.HeaderTransformer {
 
-	private ProgressBar mHeaderProgressBar;
-	private final Interpolator mInterpolator = new AccelerateInterpolator();
 	private ViewGroup mContentLayout;
 	private TextView mHeaderTextView;
+	private ProgressBar mHeaderProgressBar;
+
 	private CharSequence mPullRefreshLabel, mRefreshingLabel, mReleaseLabel;
+
 	private boolean mUseCustomProgressColor = false;
 	private int mProgressDrawableColor;
+
+	private final Interpolator mInterpolator = new AccelerateInterpolator();
 
 	protected DefaultHeaderTransformer() {
 		final int min = getMinimumApiLevel();
 		if (Build.VERSION.SDK_INT < min)
-			throw new IllegalStateException(
-					"This HeaderTransformer is designed to run on SDK "
-							+ min
-							+ "+. If using ActionBarSherlock or ActionBarCompat you should use the appropriate provided extra.");
+			throw new IllegalStateException("This HeaderTransformer is designed to run on SDK " + min
+					+ "+. If using ActionBarSherlock or ActionBarCompat you should use the appropriate provided extra.");
 	}
 
 	@Override
 	public void onPulled(final float percentagePulled) {
 		if (mHeaderProgressBar != null) {
 			mHeaderProgressBar.setVisibility(View.VISIBLE);
-			final float progress = mInterpolator
-					.getInterpolation(percentagePulled);
-			mHeaderProgressBar.setProgress(Math.round(mHeaderProgressBar
-					.getMax() * progress));
+			final float progress = mInterpolator.getInterpolation(percentagePulled);
+			mHeaderProgressBar.setProgress(Math.round(mHeaderProgressBar.getMax() * progress));
 		}
 	}
 
@@ -53,8 +72,8 @@ public class DefaultHeaderTransformer extends
 	public void onRefreshMinimized() {
 		// Here we fade out most of the header, leaving just the progress bar
 		if (mContentLayout != null) {
-			mContentLayout.startAnimation(AnimationUtils.loadAnimation(
-					mContentLayout.getContext(), R.anim.pull_refresh_fade_out));
+			mContentLayout.startAnimation(AnimationUtils.loadAnimation(mContentLayout.getContext(),
+					R.anim.pull_refresh_fade_out));
 			mContentLayout.setVisibility(View.INVISIBLE);
 		}
 	}
@@ -67,6 +86,16 @@ public class DefaultHeaderTransformer extends
 		if (mHeaderProgressBar != null) {
 			mHeaderProgressBar.setVisibility(View.VISIBLE);
 			mHeaderProgressBar.setIndeterminate(true);
+		}
+	}
+
+	@Override
+	public void onReleaseToRefresh() {
+		if (mHeaderTextView != null) {
+			mHeaderTextView.setText(mReleaseLabel);
+		}
+		if (mHeaderProgressBar != null) {
+			mHeaderProgressBar.setProgress(mHeaderProgressBar.getMax());
 		}
 	}
 
@@ -94,20 +123,16 @@ public class DefaultHeaderTransformer extends
 	@Override
 	public void onViewCreated(final Activity activity, final View headerView) {
 		// Get ProgressBar and TextView. Also set initial text on TextView
-		mHeaderProgressBar = (ProgressBar) headerView
-				.findViewById(R.id.ptr_progress);
+		mHeaderProgressBar = (ProgressBar) headerView.findViewById(R.id.ptr_progress);
 		mHeaderTextView = (TextView) headerView.findViewById(R.id.ptr_text);
 
 		// Apply any custom ProgressBar colors
 		applyProgressBarColor();
 
 		// Labels to display
-		mPullRefreshLabel = activity
-				.getString(R.string.pull_to_refresh_pull_label);
-		mRefreshingLabel = activity
-				.getString(R.string.pull_to_refresh_refreshing_label);
-		mReleaseLabel = activity
-				.getString(R.string.pull_to_refresh_release_label);
+		mPullRefreshLabel = activity.getString(R.string.pull_to_refresh_pull_label);
+		mRefreshingLabel = activity.getString(R.string.pull_to_refresh_refreshing_label);
+		mReleaseLabel = activity.getString(R.string.pull_to_refresh_release_label);
 
 		// Retrieve the Action Bar size from the Activity's theme
 		mContentLayout = (ViewGroup) headerView.findViewById(R.id.ptr_content);
@@ -123,8 +148,7 @@ public class DefaultHeaderTransformer extends
 			// If we do not have a opaque background we just display a solid
 			// solid behind it
 			if (abBg.getOpacity() != PixelFormat.OPAQUE) {
-				final View view = headerView
-						.findViewById(R.id.ptr_text_opaque_bg);
+				final View view = headerView.findViewById(R.id.ptr_text_opaque_bg);
 				if (view != null) {
 					view.setVisibility(View.VISIBLE);
 				}
@@ -145,29 +169,69 @@ public class DefaultHeaderTransformer extends
 		onReset();
 	}
 
-	protected int getMinimumApiLevel() {
-		return Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+	/**
+	 * Set color to apply to the progress bar. Automatically enables usage of
+	 * the custom color. Use {@link #setProgressBarColorEnabled(boolean)} to
+	 * disable and re-enable the custom color usage.
+	 * <p/>
+	 * The best way to apply a color is to load the color from resources:
+	 * {@code setProgressBarColor(getResources().getColor(R.color.your_color_name))}.
+	 * 
+	 * @param color The color to use.
+	 */
+	public void setProgressBarColor(final int color) {
+		mProgressDrawableColor = color;
+		setProgressBarColorEnabled(true);
 	}
 
-	private void applyProgressBarColor() {
-		if (mHeaderProgressBar != null) {
-			if (mUseCustomProgressColor) {
-				mHeaderProgressBar.getProgressDrawable().setColorFilter(
-						mProgressDrawableColor, Mode.SRC_ATOP);
-				mHeaderProgressBar.getIndeterminateDrawable().setColorFilter(
-						mProgressDrawableColor, Mode.SRC_ATOP);
-			} else {
-				mHeaderProgressBar.getProgressDrawable().clearColorFilter();
-				mHeaderProgressBar.getIndeterminateDrawable()
-						.clearColorFilter();
-			}
+	/**
+	 * Enable or disable the use of a custom progress bar color. You can set
+	 * what color to use with {@link #setProgressBarColor(int)}, which also
+	 * automatically enables custom color usage.
+	 */
+	public void setProgressBarColorEnabled(final boolean enabled) {
+		mUseCustomProgressColor = enabled;
+		applyProgressBarColor();
+	}
+
+	/**
+	 * Set Text to show to prompt the user is pull (or keep pulling).
+	 * 
+	 * @param pullText - Text to display.
+	 */
+	public void setPullText(final CharSequence pullText) {
+		mPullRefreshLabel = pullText;
+		if (mHeaderTextView != null) {
+			mHeaderTextView.setText(mPullRefreshLabel);
 		}
+	}
+
+	/**
+	 * Set Text to show to tell the user that a refresh is currently in
+	 * progress.
+	 * 
+	 * @param refreshingText - Text to display.
+	 */
+	public void setRefreshingText(final CharSequence refreshingText) {
+		mRefreshingLabel = refreshingText;
+	}
+
+	/**
+	 * Set Text to show to tell the user has scrolled enough to refresh.
+	 * 
+	 * @param releaseText - Text to display.
+	 */
+	public void setReleaseText(final CharSequence releaseText) {
+		mReleaseLabel = releaseText;
+	}
+
+	protected Drawable getActionBarBackground(final Context context) {
+		return ThemeUtils.getActionBarBackground(context);
 	}
 
 	protected int getActionBarSize(final Context context) {
 		final int[] attrs = { android.R.attr.actionBarSize };
-		final TypedArray values = context.getTheme().obtainStyledAttributes(
-				attrs);
+		final TypedArray values = context.getTheme().obtainStyledAttributes(attrs);
 		try {
 			return values.getDimensionPixelSize(0, 0);
 		} finally {
@@ -175,7 +239,37 @@ public class DefaultHeaderTransformer extends
 		}
 	}
 
-	protected Drawable getActionBarBackground(final Context context) {
-		return ThemeUtils.getActionBarBackground(context);
+	protected int getActionBarTitleStyle(final Context context) {
+		final int[] android_styleable_ActionBar = { android.R.attr.titleTextStyle };
+
+		// Need to get resource id of style pointed to from actionBarStyle
+		final TypedValue outValue = new TypedValue();
+		context.getTheme().resolveAttribute(android.R.attr.actionBarStyle, outValue, true);
+		// Now get action bar style values...
+		final TypedArray abStyle = context.getTheme().obtainStyledAttributes(outValue.resourceId,
+				android_styleable_ActionBar);
+		try {
+			// titleTextStyle is the first attr in the array above so it's index
+			// is 0.
+			return abStyle.getResourceId(0, 0);
+		} finally {
+			abStyle.recycle();
+		}
+	}
+
+	protected int getMinimumApiLevel() {
+		return Build.VERSION_CODES.ICE_CREAM_SANDWICH;
+	}
+
+	private void applyProgressBarColor() {
+		if (mHeaderProgressBar != null) {
+			if (mUseCustomProgressColor) {
+				mHeaderProgressBar.getProgressDrawable().setColorFilter(mProgressDrawableColor, Mode.SRC_ATOP);
+				mHeaderProgressBar.getIndeterminateDrawable().setColorFilter(mProgressDrawableColor, Mode.SRC_ATOP);
+			} else {
+				mHeaderProgressBar.getProgressDrawable().clearColorFilter();
+				mHeaderProgressBar.getIndeterminateDrawable().clearColorFilter();
+			}
+		}
 	}
 }
