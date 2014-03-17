@@ -18,6 +18,7 @@ public class DualPaneActivity extends BaseSupportActivity {
 	private SharedPreferences mPreferences;
 	private boolean mDualPaneInPortrait, mDualPaneInLandscape;
 	private SlidingPaneView mSlidingPane;
+	public static final int PANE_RIGHT = R.id.fragment_container_right;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,22 +47,22 @@ public class DualPaneActivity extends BaseSupportActivity {
 			break;
 		}
 		setContentView(layout);
-		if (mSlidingPane != null) {
-			mSlidingPane.setRightPaneBackground(getPaneBackground());
-		}
-		final FragmentManager fm = getSupportFragmentManager();
-		fm.addOnBackStackChangedListener(this);
-		if (savedInstanceState != null) {
-			final Fragment left_pane_fragment = fm.findFragmentById(PANE_LEFT);
-			final View main_view = findViewById(R.id.main);
-			final boolean left_pane_used = left_pane_fragment != null
-					&& left_pane_fragment.isAdded();
-			if (main_view != null) {
-				final int visibility = left_pane_used ? View.GONE
-						: View.VISIBLE;
-				main_view.setVisibility(visibility);
-			}
-		}
+		// if (mSlidingPane != null) {
+		// mSlidingPane.setRightPaneBackground(getPaneBackground());
+		// }
+		// final FragmentManager fm = getSupportFragmentManager();
+		// fm.addOnBackStackChangedListener(this);
+		// if (savedInstanceState != null) {
+		// final Fragment left_pane_fragment = fm.findFragmentById(PANE_LEFT);
+		// final View main_view = findViewById(R.id.main);
+		// final boolean left_pane_used = left_pane_fragment != null
+		// && left_pane_fragment.isAdded();
+		// if (main_view != null) {
+		// final int visibility = left_pane_used ? View.GONE
+		// : View.VISIBLE;
+		// main_view.setVisibility(visibility);
+		// }
+		// }
 	}
 
 	protected boolean shouldForceEnableDualPaneMode() {
@@ -85,4 +86,9 @@ public class DualPaneActivity extends BaseSupportActivity {
 		return background;
 	}
 
+	public final boolean isRightPaneUsed() {
+		final FragmentManager fm = getSupportFragmentManager();
+		final Fragment right_pane_fragment = fm.findFragmentById(PANE_RIGHT);
+		return right_pane_fragment != null && right_pane_fragment.isAdded();
+	}
 }
