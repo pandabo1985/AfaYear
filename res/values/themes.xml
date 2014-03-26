@@ -1,24 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+
     <style name="Theme.Twidere" parent="android:Theme.Holo.Light.DarkActionBar">
-		<item name="android:actionBarStyle">@style/Widget.Twidere.ActionBar</item>
-		<!-- Custom view styles -->
-		<item name="tabItemStyle">@style/Widget.TabPageIndicator.TabItem</item>
-		<item name="tabItemContentStyle">@style/Widget.TabPageIndicator.TabItem.Content</item>
-		<item name="tabItemTextStyle">@style/Widget.TabPageIndicator.TabItem.TextView</item>
-		<item name="contentBackground">#20808080</item>
-		<item name="cardListBackgroundColor">@color/bg_color_light</item>
-		<item name="cardItemBackground">@drawable/bg_card_item_light</item>
-		<item name="cardItemBackgroundColor">#f8f8f8</item>
-		<item name="cardItemMessageIncomingBackground">@drawable/bg_card_item_message_incoming_light</item>
-		<item name="cardItemMessageOutgoingBackground">@drawable/bg_card_item_message_outgoing_light</item>
-		<item name="cardItemMessageProfileImageIncomingBackground">@drawable/bg_card_item_message_profile_image_incoming_light</item>
-		<item name="cardItemMessageProfileImageOutgoingBackground">@drawable/bg_card_item_message_profile_image_outgoing_light</item>
-		<item name="listMenuOverflowButton">@drawable/ic_list_menu_moreoverflow_normal_holo_light</item>
-		<!-- Widget styles -->
-		<item name="android:textViewStyle">@style/Widget.Twidere.Light.TextView</item>
-		<item name="android:radioButtonStyle">@style/Widget.Twidere.Light.CompoundButton.RadioButton</item>
-		<item name="android:checkboxStyle">@style/Widget.Twidere.Light.CompoundButton.CheckBox</item>
-	</style>
-    
+        <item name="android:actionBarStyle">@style/Widget.Twidere.ActionBar</item>
+        <!-- Custom view styles -->
+        <item name="tabItemStyle">@style/Widget.TabPageIndicator.TabItem</item>
+        <item name="tabItemContentStyle">@style/Widget.TabPageIndicator.TabItem.Content</item>
+        <item name="tabItemTextStyle">@style/Widget.TabPageIndicator.TabItem.TextView</item>
+        <item name="contentBackground">#20808080</item>
+        <item name="cardListBackgroundColor">@color/bg_color_light</item>
+        <item name="cardItemBackground">@drawable/bg_card_item_light</item>
+        <item name="cardItemBackgroundColor">#f8f8f8</item>
+        <item name="cardItemMessageIncomingBackground">@drawable/bg_card_item_message_incoming_light</item>
+        <item name="cardItemMessageOutgoingBackground">@drawable/bg_card_item_message_outgoing_light</item>
+        <item name="cardItemMessageProfileImageIncomingBackground">@drawable/bg_card_item_message_profile_image_incoming_light</item>
+        <item name="cardItemMessageProfileImageOutgoingBackground">@drawable/bg_card_item_message_profile_image_outgoing_light</item>
+        <item name="listMenuOverflowButton">@drawable/ic_list_menu_moreoverflow_normal_holo_light</item>
+        <!-- Widget styles -->
+        <item name="android:textViewStyle">@style/Widget.Twidere.Light.TextView</item>
+        <item name="android:radioButtonStyle">@style/Widget.Twidere.Light.CompoundButton.RadioButton</item>
+        <item name="android:checkboxStyle">@style/Widget.Twidere.Light.CompoundButton.CheckBox</item>
+    </style>
+
+    <style name="Theme.Twidere.Wizard">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+    <style name="Theme.Twidere.Light" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/Widget.Twidere.ActionBar.Light</item>
+        <!-- Custom view styles -->
+        <item name="tabItemStyle">@style/Widget.TabPageIndicator.TabItem</item>
+        <item name="tabItemContentStyle">@style/Widget.TabPageIndicator.TabItem.Content</item>
+        <item name="tabItemTextStyle">@style/Widget.TabPageIndicator.TabItem.TextView.Light</item>
+        <item name="contentBackground">#20808080</item>
+        <item name="cardListBackgroundColor">@color/bg_color_light</item>
+        <item name="cardItemBackground">@drawable/bg_card_item_light</item>
+        <item name="cardItemBackgroundColor">#f8f8f8</item>
+        <item name="cardItemMessageIncomingBackground">@drawable/bg_card_item_message_incoming_light</item>
+        <item name="cardItemMessageOutgoingBackground">@drawable/bg_card_item_message_outgoing_light</item>
+        <item name="cardItemMessageProfileImageIncomingBackground">@drawable/bg_card_item_message_profile_image_incoming_light</item>
+        <item name="cardItemMessageProfileImageOutgoingBackground">@drawable/bg_card_item_message_profile_image_outgoing_light</item>
+        <item name="listMenuOverflowButton">@drawable/ic_list_menu_moreoverflow_normal_holo_light</item>
+        <!-- Widget styles -->
+        <item name="android:textViewStyle">@style/Widget.Twidere.Light.TextView</item>
+        <item name="android:radioButtonStyle">@style/Widget.Twidere.Light.CompoundButton.RadioButton</item>
+        <item name="android:checkboxStyle">@style/Widget.Twidere.Light.CompoundButton.CheckBox</item>
+    </style>
+
+    <style name="Theme.Twidere.Light.SwipeBack">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SwipeBack</item>
+    </style>
+
+    <style name="Theme.Twidere.Light.SolidBackground">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Twidere.Light.SwipeBack.SolidBackground">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Twidere.Light.Compose">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@drawable/dialog_full_holo_light</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+
+    <style name="Theme.Twidere.SwipeBack">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SwipeBack</item>
+    </style>
+
+    <style name="Theme.Twidere.SolidBackground">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Twidere.SwipeBack.SolidBackground">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Twidere.Compose">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@drawable/dialog_full_holo_light_darkactionbar</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+
 </resources>

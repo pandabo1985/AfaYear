@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.afayear.android.client.Constants;
 import com.afayear.android.client.R;
+import com.afayear.android.client.view.TabPageIndicator;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.view.View;
 
 public class ThemeUtils implements Constants {
 
@@ -86,4 +88,78 @@ public class ThemeUtils implements Constants {
 				PREFERENCE_KEY_SOLID_COLOR_BACKGROUND, false) : false;
 	}
 
+	public static boolean shouldApplyColorFilterToTabIcons(final Context context) {
+		return shouldApplyColorFilterToTabIcons(getThemeResource(context));
+	}
+
+	public static boolean shouldApplyColorFilterToTabIcons(final int res) {
+		return isLightActionBar(res);
+	}
+
+	public static boolean isLightActionBar(final int res) {
+		switch (res) {
+		case R.style.Theme_Twidere_Light:
+		case R.style.Theme_Twidere_Light_SwipeBack:
+		case R.style.Theme_Twidere_Light_SolidBackground:
+		case R.style.Theme_Twidere_Light_SwipeBack_SolidBackground:
+		case R.style.Theme_Twidere_Light_Compose:
+			return true;
+		}
+		return false;
+	}
+
+	public static int getTabIconColor(final Context context) {
+		return getTabIconColor(getThemeResource(context));
+	}
+
+	public static int getTabIconColor(final int res) {
+		switch (res) {
+		case R.style.Theme_Twidere_Light:
+		case R.style.Theme_Twidere_Light_SwipeBack:
+		case R.style.Theme_Twidere_Light_SolidBackground:
+		case R.style.Theme_Twidere_Light_SwipeBack_SolidBackground:
+		case R.style.Theme_Twidere_Light_Compose:
+			return 0xC0333333;
+		}
+		return Color.WHITE;
+	}
+
+	public static boolean shouldApplyColorFilter(final Context context) {
+		return shouldApplyColorFilter(getThemeResource(context));
+	}
+
+	public static boolean shouldApplyColorFilter(final int res) {
+		switch (res) {
+		case R.style.Theme_Twidere:
+		case R.style.Theme_Twidere_SwipeBack:
+		case R.style.Theme_Twidere_SolidBackground:
+		case R.style.Theme_Twidere_SwipeBack_SolidBackground:
+		case R.style.Theme_Twidere_Compose:
+			return false;
+		}
+		return true;
+	}
+
+	public static void applyBackground(final View view, final int color) {
+		if (view == null)
+			return;
+		try {
+			final Drawable bg = view.getBackground();
+			if (bg == null)
+				return;
+			final Drawable mutated = bg.mutate();
+			if (mutated == null)
+				return;
+			mutated.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+			view.invalidate();
+		} catch (final Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void applyBackground(final View view) {
+		if (view == null)
+			return;
+		applyBackground(view, getThemeColor(view.getContext()));
+	}
 }

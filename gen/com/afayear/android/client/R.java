@@ -11,6 +11,8 @@ public final class R {
     public static final class anim {
         public static final int pull_refresh_fade_in=0x7f040000;
         public static final int pull_refresh_fade_out=0x7f040001;
+        public static final int swipeback_close_exit=0x7f040002;
+        public static final int swipeback_open_enter=0x7f040003;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -219,58 +221,74 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int default_slidepane_spacing_left=0x7f080005;
         public static final int default_slidepane_spacing_right=0x7f080006;
         public static final int default_slidingpane_shadow_width=0x7f080002;
+        public static final int left_drawer_width=0x7f080007;
         public static final int pane_spacing_left=0x7f080003;
         public static final int pane_spacing_right=0x7f080004;
     }
     public static final class drawable {
         public static final int ab_solid_dark_holo=0x7f020000;
-        public static final int ab_solid_light_nocolor_holo=0x7f020001;
-        public static final int ab_transparent_noclor_holo=0x7f020002;
-        public static final int ab_twidere_solid_color_holo=0x7f020003;
-        public static final int ab_twidere_solid_dark_holo=0x7f020004;
-        public static final int ab_twidere_transparent_dark_holo=0x7f020005;
-        public static final int bg_card_item_light=0x7f020006;
-        public static final int bg_card_item_message_incoming_light=0x7f020007;
-        public static final int bg_card_item_message_outgoing_light=0x7f020008;
-        public static final int bg_card_item_message_profile_image_incoming_light=0x7f020009;
-        public static final int bg_card_item_message_profile_image_outgoing_light=0x7f02000a;
-        public static final int ic_launcher=0x7f02000b;
-        public static final int ic_list_menu_moreoverflow_normal_holo_light=0x7f02000c;
-        public static final int ptr_progress_horizontal_holo_center=0x7f02000d;
-        public static final int ptr_progress_indeterminate_horizontal_holo=0x7f02000e;
-        public static final int ptr_progress_primary_holo=0x7f02000f;
-        public static final int ptr_progressbar_indeterminate_holo1=0x7f020010;
-        public static final int ptr_progressbar_indeterminate_holo2=0x7f020011;
-        public static final int ptr_progressbar_indeterminate_holo3=0x7f020012;
-        public static final int ptr_progressbar_indeterminate_holo4=0x7f020013;
-        public static final int ptr_progressbar_indeterminate_holo5=0x7f020014;
-        public static final int ptr_progressbar_indeterminate_holo6=0x7f020015;
-        public static final int ptr_progressbar_indeterminate_holo7=0x7f020016;
-        public static final int ptr_progressbar_indeterminate_holo8=0x7f020017;
-        public static final int shadow_holo=0x7f020018;
-        public static final int vpi__tab_indicator=0x7f020019;
-        public static final int vpi__tab_selected_focused_holo=0x7f02001a;
-        public static final int vpi__tab_selected_holo=0x7f02001b;
-        public static final int vpi__tab_selected_pressed_holo=0x7f02001c;
-        public static final int vpi__tab_unselected_focused_holo=0x7f02001d;
-        public static final int vpi__tab_unselected_holo=0x7f02001e;
-        public static final int vpi__tab_unselected_pressed_holo=0x7f02001f;
+        public static final int ab_solid_light_holo=0x7f020001;
+        public static final int ab_solid_light_nocolor_holo=0x7f020002;
+        public static final int ab_transparent_noclor_holo=0x7f020003;
+        public static final int ab_twidere_solid_color_holo=0x7f020004;
+        public static final int ab_twidere_solid_dark_holo=0x7f020005;
+        public static final int ab_twidere_solid_light_holo=0x7f020006;
+        public static final int ab_twidere_transparent_dark_holo=0x7f020007;
+        public static final int bg_card_item_light=0x7f020008;
+        public static final int bg_card_item_message_incoming_light=0x7f020009;
+        public static final int bg_card_item_message_outgoing_light=0x7f02000a;
+        public static final int bg_card_item_message_profile_image_incoming_light=0x7f02000b;
+        public static final int bg_card_item_message_profile_image_outgoing_light=0x7f02000c;
+        public static final int dialog_full_holo_light=0x7f02000d;
+        public static final int dialog_full_holo_light_darkactionbar=0x7f02000e;
+        public static final int ic_launcher=0x7f02000f;
+        public static final int ic_list_menu_moreoverflow_normal_holo_light=0x7f020010;
+        public static final int ic_menu_status_compose=0x7f020011;
+        public static final int ic_tab_list=0x7f020012;
+        public static final int ptr_progress_horizontal_holo_center=0x7f020013;
+        public static final int ptr_progress_indeterminate_horizontal_holo=0x7f020014;
+        public static final int ptr_progress_primary_holo=0x7f020015;
+        public static final int ptr_progressbar_indeterminate_holo1=0x7f020016;
+        public static final int ptr_progressbar_indeterminate_holo2=0x7f020017;
+        public static final int ptr_progressbar_indeterminate_holo3=0x7f020018;
+        public static final int ptr_progressbar_indeterminate_holo4=0x7f020019;
+        public static final int ptr_progressbar_indeterminate_holo5=0x7f02001a;
+        public static final int ptr_progressbar_indeterminate_holo6=0x7f02001b;
+        public static final int ptr_progressbar_indeterminate_holo7=0x7f02001c;
+        public static final int ptr_progressbar_indeterminate_holo8=0x7f02001d;
+        public static final int shadow_holo=0x7f02001e;
+        public static final int vpi__tab_indicator=0x7f02001f;
+        public static final int vpi__tab_selected_focused_holo=0x7f020020;
+        public static final int vpi__tab_selected_holo=0x7f020021;
+        public static final int vpi__tab_selected_pressed_holo=0x7f020022;
+        public static final int vpi__tab_unselected_focused_holo=0x7f020023;
+        public static final int vpi__tab_unselected_holo=0x7f020024;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f020025;
     }
     public static final class id {
-        public static final int action_settings=0x7f05000d;
+        public static final int actions_button=0x7f05000e;
+        public static final int actions_icon=0x7f050010;
         public static final int both=0x7f050003;
-        public static final int color_layer=0x7f05000c;
+        public static final int color_layer=0x7f050016;
+        public static final int drawer_layout=0x7f05000d;
         public static final int fragment_container_left=0x7f05000a;
         public static final int fragment_container_right=0x7f05000b;
         public static final int left=0x7f050001;
+        public static final int left_drawer=0x7f050012;
+        public static final int left_drawer_container=0x7f050011;
         public static final int main=0x7f050008;
         public static final int none=0x7f050000;
+        public static final int progress=0x7f05000f;
         public static final int ptr_content=0x7f050004;
         public static final int ptr_progress=0x7f050007;
         public static final int ptr_text=0x7f050006;
         public static final int ptr_text_opaque_bg=0x7f050005;
         public static final int right=0x7f050002;
         public static final int sliding_pane=0x7f050009;
+        public static final int tab_container=0x7f05000c;
+        public static final int tab_item_content=0x7f050013;
+        public static final int tab_item_icon=0x7f050014;
+        public static final int tab_item_title=0x7f050015;
     }
     public static final class integer {
         public static final int default_sliding_pane_fade_max=0x7f090000;
@@ -286,28 +304,43 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int base_dual_pane=0x7f030002;
         public static final int base_pane_left_content=0x7f030003;
         public static final int base_pane_right_content=0x7f030004;
-        public static final int pull_refresh_default_header=0x7f030005;
-    }
-    public static final class menu {
-        public static final int home=0x7f0c0000;
+        public static final int base_tabs=0x7f030005;
+        public static final int home=0x7f030006;
+        public static final int home_actions_button_layout=0x7f030007;
+        public static final int home_left_drawer_container=0x7f030008;
+        public static final int pull_refresh_default_header=0x7f030009;
+        public static final int vpi__tab=0x7f03000a;
     }
     public static final class string {
         public static final int action_settings=0x7f0a0004;
         public static final int app_name=0x7f0a0003;
+        public static final int compose=0x7f0a0009;
         public static final int hello_world=0x7f0a0005;
+        public static final int icon=0x7f0a0008;
         public static final int pull_to_refresh_pull_label=0x7f0a0000;
         public static final int pull_to_refresh_refreshing_label=0x7f0a0002;
         public static final int pull_to_refresh_release_label=0x7f0a0001;
+        public static final int settings_wizard=0x7f0a0007;
+        public static final int sign_in=0x7f0a0006;
     }
     public static final class style {
+        public static final int Animation_SwipeBack=0x7f0b000d;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices
+
+
+
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
+
+
+
         
          */
         public static final int AppBaseTheme=0x7f0b0001;
@@ -316,12 +349,24 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int AppTheme=0x7f0b0002;
         public static final int TextAppearance_TabPageIndicator=0x7f0b0003;
-        public static final int Theme_Twidere=0x7f0b000b;
+        public static final int Theme_Twidere=0x7f0b000e;
+        public static final int Theme_Twidere_Compose=0x7f0b0018;
+        public static final int Theme_Twidere_Light=0x7f0b0010;
+        public static final int Theme_Twidere_Light_Compose=0x7f0b0014;
+        public static final int Theme_Twidere_Light_SolidBackground=0x7f0b0012;
+        public static final int Theme_Twidere_Light_SwipeBack=0x7f0b0011;
+        public static final int Theme_Twidere_Light_SwipeBack_SolidBackground=0x7f0b0013;
+        public static final int Theme_Twidere_SolidBackground=0x7f0b0016;
+        public static final int Theme_Twidere_SwipeBack=0x7f0b0015;
+        public static final int Theme_Twidere_SwipeBack_SolidBackground=0x7f0b0017;
+        public static final int Theme_Twidere_Wizard=0x7f0b000f;
         public static final int Widget_PullToRefresh_ProgressBar_Horizontal_Center=0x7f0b0000;
         public static final int Widget_TabPageIndicator_TabItem=0x7f0b000a;
         public static final int Widget_TabPageIndicator_TabItem_Content=0x7f0b0008;
         public static final int Widget_TabPageIndicator_TabItem_TextView=0x7f0b0009;
+        public static final int Widget_TabPageIndicator_TabItem_TextView_Light=0x7f0b000c;
         public static final int Widget_Twidere_ActionBar=0x7f0b0004;
+        public static final int Widget_Twidere_ActionBar_Light=0x7f0b000b;
         public static final int Widget_Twidere_Light_CompoundButton_CheckBox=0x7f0b0005;
         public static final int Widget_Twidere_Light_CompoundButton_RadioButton=0x7f0b0006;
         public static final int Widget_Twidere_Light_TextView=0x7f0b0007;

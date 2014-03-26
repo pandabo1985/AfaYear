@@ -189,6 +189,7 @@ public class BaseSupportActivity extends BaseSupportThemedActivity implements
 		setRefreshing(isRefreshing(getCurrentPullToRefreshFragment()));
 	}
 
+
 	public AsyncTwitterWrapper getTwitterWrapper() {
 		return getTwidereApplication() != null ? getTwidereApplication()
 				.getTwitterWrapper() : null;
