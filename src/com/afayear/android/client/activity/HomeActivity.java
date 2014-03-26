@@ -100,7 +100,15 @@ public class HomeActivity extends DualPaneActivity {
 		mActionsButtonLayout = findViewById(R.id.actions_button);
 		mLeftDrawerContainer = findViewById(R.id.left_drawer_container);
 	}
+	@Override
+	protected int getDualPaneLayoutRes() {
+		return R.layout.home_dual_pane;
+	}
 
+	@Override
+	protected int getNormalLayoutRes() {
+		return R.layout.home;
+	}
 	
 	public void notifyAccountsChanged() {
 		if (mPreferences == null)

@@ -9,6 +9,6 @@
 		android:id="@+id/left_drawer"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		class="org.mariotaku.twidere.fragment.AccountsDrawerFragment"/>
+		class="com.afayear.android.client.fragment.AccountsDrawerFragment"/>
 
 </LinearLayout>

@@ -307,9 +307,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int base_tabs=0x7f030005;
         public static final int home=0x7f030006;
         public static final int home_actions_button_layout=0x7f030007;
-        public static final int home_left_drawer_container=0x7f030008;
-        public static final int pull_refresh_default_header=0x7f030009;
-        public static final int vpi__tab=0x7f03000a;
+        public static final int home_dual_pane=0x7f030008;
+        public static final int home_left_drawer_container=0x7f030009;
+        public static final int home_pane_left_content=0x7f03000a;
+        public static final int pull_refresh_default_header=0x7f03000b;
+        public static final int vpi__tab=0x7f03000c;
     }
     public static final class string {
         public static final int action_settings=0x7f0a0004;
